@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ko"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="WebP 이미지를 PNG 또는 JPG로 일괄 변환합니다.">
+  <title>WebP Converter</title><link rel="stylesheet" href="/css/app.css">
+</head><body><main class="shell">
+  <header class="hero"><span class="eyebrow">SPRING BOOT IMAGE TOOL</span><h1>WebP Converter</h1>
+    <p>WebP 이미지를 PNG 또는 JPG로 한 번에 변환하세요. 업로드 파일은 저장하지 않습니다.</p></header>
+  <form id="converter" class="card" enctype="multipart/form-data">
+    <label class="drop-zone" id="drop-zone" for="files"><input id="files" name="files" type="file" accept="image/webp,.webp" multiple required>
+      <span class="drop-icon">↓</span><strong>WebP 파일을 끌어놓거나 선택하세요</strong><small>최대 20개 · 파일당 20MB · 요청당 100MB</small></label>
+    <section id="file-list" class="file-list" aria-live="polite"></section>
+    <div id="conversion-options" class="options png-mode">
+      <fieldset><legend>출력 형식</legend><label class="choice"><input type="radio" name="format" value="PNG" checked> PNG</label><label class="choice"><input type="radio" name="format" value="JPG"> JPG</label></fieldset>
+      <label id="jpg-quality-option" hidden><span>JPG 품질 <output id="quality-value">90</output></span><input id="quality" name="quality" type="range" min="1" max="100" value="90"></label>
+      <label id="jpg-background-option" hidden><span>투명 영역 배경</span><input name="background" type="color" value="#ffffff"></label>
+    </div>
+    <button id="submit" class="primary" type="submit">변환하고 ZIP 다운로드</button>
+    <div id="status" class="status" role="status" aria-live="polite">파일을 선택하면 변환을 시작할 수 있습니다.</div>
+  </form>
+  <section class="notes"><article><strong>투명도 보존</strong><span>PNG는 알파 채널을 유지합니다.</span></article><article><strong>안전한 일괄 처리</strong><span>일부 파일이 실패해도 나머지는 계속 처리합니다.</span></article><article><strong>개인정보 보호</strong><span>변환 후 파일을 서버에 보관하지 않습니다.</span></article></section>
+</main><script src="/js/app.js" defer></script></body></html>
